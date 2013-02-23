@@ -24,3 +24,9 @@ If you want to specify a target other than `_blank`, you may specify it when run
 ```javascript
 $('div.message').links({ target: 'other_target' });
 ```
+
+You can specify a default protocol to prepend for links that don't have one:
+
+```javascript
+$('div.message').links({ protocol: 'http://' });
+```
