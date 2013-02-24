@@ -7,7 +7,7 @@
 			target: '_blank',
 			protocol: 'http://'
 		};
-		$.extend( parameters, defaults );
+		parameters = $.extend( defaults, parameters );
 
 		return this.each( function(){
 			
@@ -17,7 +17,7 @@
 			var html = string.replace( url_regex, function( match, url ){
 				var href = url;
 				// No protocol? No problem. Fill it in for them.
-				var has_protocol = /[a-z]+:\/\//.test( href );
+				var has_protocol = /^[a-z]+:\/\//i.test( href );
 				if( !has_protocol ) href = parameters.protocol + href;
 				return '<a href="'+ href +'" target="'+ parameters.target +'">'+ url +'</a>';
 			});
